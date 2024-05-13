@@ -6,6 +6,15 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
+export function HydrateFallback() {
+  return (
+    <>
+      <p>Loading...</p>
+      <Scripts />
+    </>
+  );
+}
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
