@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "turbo lint",
+    "lint:check": "turbo lint:check",
+    "format": "turbo format",
+    "format:check": "turbo format:check",
+    "dev": "turbo dev"
   },
   "keywords": [],
   "author": "",
@@ -12,5 +17,8 @@
   "engines": {
     "node": "20.13.1"
   },
-  "packageManager": "pnpm@9.1.1"
+  "packageManager": "pnpm@9.1.1",
+  "devDependencies": {
+    "turbo": "^1.13.3"
+  }
 }
