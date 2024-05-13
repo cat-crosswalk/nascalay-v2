@@ -5,6 +5,9 @@
     "lint:check": {},
     "format": {},
     "format:check": {},
+    "build": {
+      "outputs": ["build"]
+    },
     "dev": {
       "cache": false,
       "persistent": true
