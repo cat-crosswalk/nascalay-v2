@@ -12,11 +12,19 @@ importers:
         specifier: ^1.13.3
         version: 1.13.3
 
-  apps/client: {}
+  apps/client:
+    dependencies:
+      '@repo/common':
+        specifier: workspace:*
+        version: link:../common
 
   apps/common: {}
 
-  apps/server: {}
+  apps/server:
+    dependencies:
+      '@repo/common':
+        specifier: workspace:*
+        version: link:../common
 
 packages:
 
