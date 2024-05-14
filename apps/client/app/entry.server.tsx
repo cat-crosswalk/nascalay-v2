@@ -6,23 +6,23 @@ import { RemixServer } from "@remix-run/react";
 import { renderToString } from "react-dom/server";
 
 export default function handleRequest(
-	request: Request,
-	responseStatusCode: number,
-	_responseHeaders: Headers,
-	remixContext: EntryContext,
+  request: Request,
+  responseStatusCode: number,
+  _responseHeaders: Headers,
+  remixContext: EntryContext,
 ) {
-	const shellHtml = fs
-		.readFileSync(path.join(process.cwd(), "app/index.html"))
-		.toString();
+  const shellHtml = fs
+    .readFileSync(path.join(process.cwd(), "app/index.html"))
+    .toString();
 
-	const appHtml = renderToString(
-		<RemixServer context={remixContext} url={request.url} />,
-	);
+  const appHtml = renderToString(
+    <RemixServer context={remixContext} url={request.url} />,
+  );
 
-	const html = shellHtml.replace("<!-- Remix SPA -->", appHtml);
+  const html = shellHtml.replace("<!-- Remix SPA -->", appHtml);
 
-	return new Response(html, {
-		headers: { "Content-Type": "text/html" },
-		status: responseStatusCode,
-	});
+  return new Response(html, {
+    headers: { "Content-Type": "text/html" },
+    status: responseStatusCode,
+  });
 }
