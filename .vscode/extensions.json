@@ -1,6 +1,3 @@
 {
-  "recommendations": [
-    "vercel.turbo-vsc",
-    "biomejs.biome"
-  ]
+  "recommendations": ["vercel.turbo-vsc", "biomejs.biome"]
 }
