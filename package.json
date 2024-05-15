@@ -6,6 +6,7 @@
   "scripts": {
     "check": "biome check apps ./*.json",
     "check:fix": "pnpm run check --apply",
+    "typecheck": "turbo typecheck",
     "build": "turbo build",
     "dev": "turbo dev"
   },
