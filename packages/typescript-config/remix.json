@@ -1,6 +1,7 @@
 {
   "extends": "./base.json",
   "compilerOptions": {
+    "types": ["@remix-run/node", "vite/client"],
     "target": "ES2022",
     "jsx": "react-jsx",
     "useDefineForClassFields": true,
