@@ -48,6 +48,9 @@ importers:
       '@remix-run/dev':
         specifier: ^2.9.2
         version: 2.9.2(@remix-run/react@2.9.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.4.5))(@remix-run/serve@2.9.2(typescript@5.4.5))(@types/node@20.12.11)(babel-plugin-macros@3.1.0)(typescript@5.4.5)(vite@5.2.11(@types/node@20.12.11))
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       '@types/react':
         specifier: ^18.3.2
         version: 18.3.2
@@ -71,6 +74,8 @@ importers:
       '@repo/common':
         specifier: workspace:*
         version: link:../common
+
+  packages/typescript-config: {}
 
 packages:
 
