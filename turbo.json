@@ -4,6 +4,7 @@
     "build": {
       "outputs": ["build"]
     },
+    "typecheck": {},
     "dev": {
       "cache": false,
       "persistent": true
