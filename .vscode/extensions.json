@@ -1,3 +1,7 @@
 {
-  "recommendations": ["vercel.turbo-vsc", "biomejs.biome"]
+  "recommendations": [
+    "vercel.turbo-vsc",
+    "biomejs.biome",
+    "styled-components.vscode-styled-components"
+  ]
 }
