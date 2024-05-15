@@ -4,11 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "turbo lint",
-    "lint:check": "turbo lint:check",
-    "format": "turbo format",
-    "format:check": "turbo format:check",
+    "check": "biome check apps ./*.json",
+    "check:fix": "pnpm run check --apply",
     "build": "turbo build",
     "dev": "turbo dev"
   },
@@ -20,6 +17,7 @@
   },
   "packageManager": "pnpm@9.1.1",
   "devDependencies": {
+    "@biomejs/biome": "^1.7.3",
     "turbo": "^1.13.3"
   }
 }

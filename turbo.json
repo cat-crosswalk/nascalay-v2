@@ -1,10 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
-    "lint": {},
-    "lint:check": {},
-    "format": {},
-    "format:check": {},
     "build": {
       "outputs": ["build"]
     },
