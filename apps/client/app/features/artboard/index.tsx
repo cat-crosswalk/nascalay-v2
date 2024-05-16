@@ -1,3 +1,4 @@
+import { boolAttr } from "@/utils/boolAttr";
 import styled from "@emotion/styled";
 import type { RefObject } from "react";
 import type { MouseHandlers } from "./types";
@@ -15,13 +16,15 @@ export function Artboard({ canvasRef, mouseHandlers, isLocked }: Props) {
       width={640}
       height={480}
       {...mouseHandlers}
-      style={{
-        pointerEvents: isLocked ? "none" : "auto",
-      }}
+      data-is-locked={boolAttr(isLocked)}
     />
   );
 }
 
 const Canvas = styled.canvas`
   border: 1px solid black;
+
+  &[data-is-locked] {
+    pointer-events: none;
+  }
 `;
