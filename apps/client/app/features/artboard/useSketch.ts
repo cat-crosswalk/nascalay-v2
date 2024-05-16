@@ -90,7 +90,7 @@ export function useSketch(
     lastPos.current = null;
   }, []);
 
-  const onMouseOut = useCallback(
+  const onMouseLeave = useCallback(
     (e: React.MouseEvent<HTMLElement>) => {
       if (
         isPrimaryClicking(e) &&
@@ -148,10 +148,10 @@ export function useSketch(
       onMouseDown,
       onMouseMove,
       onMouseUp,
-      onMouseOut,
+      onMouseLeave,
       onMouseEnter,
     };
-  }, [onMouseDown, onMouseMove, onMouseUp, onMouseOut, onMouseEnter]);
+  }, [onMouseDown, onMouseMove, onMouseUp, onMouseLeave, onMouseEnter]);
 
   return { mouseHandlers };
 }

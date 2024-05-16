@@ -9,7 +9,7 @@ export interface Pos {
 export type MouseHandlers = Required<
   Pick<
     React.DOMAttributes<HTMLElement>,
-    "onMouseDown" | "onMouseMove" | "onMouseUp" | "onMouseOut" | "onMouseEnter"
+    "onMouseDown" | "onMouseMove" | "onMouseUp" | "onMouseLeave" | "onMouseEnter"
   >
 >;
 
