@@ -51,14 +51,36 @@ export default function Tmp2() {
           value={penSize}
           onChange={(e) => setPenSize(Number(e.target.value))}
         />
-        <select
-          value={penType}
-          onChange={(e) => setPenType(e.target.value as PenType)}
-        >
-          <option value="pen">Pen</option>
-          <option value="eraser">Eraser</option>
-          <option value="bucket">Bucket</option>
-        </select>
+        <label>
+          <input
+            type="radio"
+            name="tool"
+            value="pen"
+            checked={penType === "pen"}
+            onChange={() => setPenType("pen")}
+          />
+          pen
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="tool"
+            value="eraser"
+            checked={penType === "eraser"}
+            onChange={() => setPenType("eraser")}
+          />
+          eraser
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="tool"
+            value="bucket"
+            checked={penType === "bucket"}
+            onChange={() => setPenType("bucket")}
+          />
+          bucket
+        </label>
       </div>
       <Artboard canvasRef={canvasRef} mouseHandlers={mouseHandlers} />
     </div>
