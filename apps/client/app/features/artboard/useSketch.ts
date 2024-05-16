@@ -90,9 +90,30 @@ export function useSketch(
     lastPos.current = null;
   }, []);
 
-  const onMouseOut = useCallback(() => {
-    lastPos.current = null;
-  }, []);
+  const onMouseOut = useCallback(
+    (e: React.MouseEvent<HTMLElement>) => {
+      if (
+        isPrimaryClicking(e) &&
+        lastPos.current !== null &&
+        penData.type !== "bucket"
+      ) {
+        const canvas = canvasRef.current;
+        if (canvas === null) return;
+
+        const pos = getIntMousePos(e);
+
+        draw(canvas, lastPos.current, pos, {
+          ...penData,
+          type: penData.type,
+        });
+
+        console.debug(e.movementX, e.movementY);
+      }
+
+      lastPos.current = null;
+    },
+    [canvasRef.current, penData],
+  );
 
   const onMouseEnter = useCallback(
     (e: React.MouseEvent<HTMLElement>) => {
@@ -107,6 +128,16 @@ export function useSketch(
       pushHistory(now);
 
       const pos = getIntMousePos(e);
+
+      // NOTE: 前の座標がわからないため、最寄りの辺からとする
+      const sidePos = nearestSidePos(pos, canvas.width, canvas.height);
+      if (sidePos !== null) {
+        draw(canvas, sidePos, pos, {
+          ...penData,
+          type: penData.type,
+        });
+      }
+
       lastPos.current = pos;
     },
     [pushHistory, canvasRef.current, penData],
@@ -179,4 +210,16 @@ function fill(
     [0, canvas.width],
     [0, canvas.height],
   );
+}
+
+function nearestSidePos(pos: Pos, width: number, height: number): Pos | null {
+  if (pos.x < 0 || pos.x >= width || pos.y < 0 || pos.y >= height) {
+    return null;
+  }
+
+  if (Math.min(pos.x, width - pos.x) < Math.min(pos.y, height - pos.y)) {
+    return { x: pos.x < width / 2 ? 0 : width, y: pos.y };
+  }
+
+  return { x: pos.x, y: pos.y < height / 2 ? 0 : height };
 }
