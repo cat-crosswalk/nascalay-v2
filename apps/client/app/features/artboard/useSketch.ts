@@ -2,8 +2,8 @@ import { unreachable } from "@/utils/unreachable";
 import type React from "react";
 import { type RefObject, useCallback, useMemo, useRef } from "react";
 import { bucketFill } from "./bucketFill";
-import type { MouseHandlers, Pos } from "./types";
-import { type CanvasData, getCanvasData } from "./utils";
+import type { LikeEqualColor, MouseHandlers, Pos } from "./types";
+import { type CanvasData, getCanvasData, rangedEqualColor } from "./utils";
 
 type PenType = "pen" | "eraser" | "bucket";
 export interface PenData {
@@ -194,6 +194,7 @@ function draw(
   ctx.stroke();
 }
 
+const isSameColor: LikeEqualColor = rangedEqualColor(10);
 function fill(
   canvas: HTMLCanvasElement,
   pos: Pos,
@@ -209,6 +210,7 @@ function fill(
     penData.color,
     [0, canvas.width],
     [0, canvas.height],
+    isSameColor,
   );
 }
 
