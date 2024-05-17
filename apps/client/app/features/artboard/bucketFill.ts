@@ -87,7 +87,7 @@ export function bucketFill(
   canvas: HTMLCanvasElement,
   x: number,
   y: number,
-  color: `#${string}`,
+  colorCode: `#${string}`,
   widthRange?: [number, number],
   heightRange?: [number, number],
   likeEqualColor: LikeEqualColor = equalColor,
@@ -103,12 +103,12 @@ export function bucketFill(
   const data = imageData.data;
   const formattedData = rawToColors(data, width, height);
   const targetColor = formattedData[y][x];
-  const colorObj = hexToColor(color);
-  if (colorObj === null) {
+  const color = hexToColor(colorCode);
+  if (color === null) {
     console.error("invalid color");
     return;
   }
-  if (likeEqualColor(colorObj, targetColor)) return;
+  if (likeEqualColor(color, targetColor)) return;
 
   const xRange = widthRange ?? [0, width];
   const yRange = heightRange ?? [0, height];
@@ -124,7 +124,7 @@ export function bucketFill(
         formattedData,
         x,
         y,
-        colorObj,
+        color,
         xRange,
         targetColor,
         likeEqualColor,
@@ -134,7 +134,7 @@ export function bucketFill(
         formattedData,
         x,
         y,
-        colorObj,
+        color,
         xRange,
         targetColor,
         likeEqualColor,
