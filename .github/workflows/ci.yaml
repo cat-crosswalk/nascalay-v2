@@ -19,8 +19,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install pnpm
         uses: pnpm/action-setup@v3
-        with:
-          version: 9
+        # version from packageManager field in the package.json
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
@@ -36,8 +35,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install pnpm
         uses: pnpm/action-setup@v3
-        with:
-          version: 9
+        # version from packageManager field in the package.json
       - name: Use Node.js 20
         uses: actions/setup-node@v4
         with:
@@ -55,8 +53,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install pnpm
         uses: pnpm/action-setup@v3
-        with:
-          version: 9
+        # version from packageManager field in the package.json
       - name: Use Node.js 20
         uses: actions/setup-node@v4
         with:
