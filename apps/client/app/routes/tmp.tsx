@@ -1,8 +1,9 @@
+import colors from "@/theme/colors";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
 const style1 = css`
-  background: blue;
+  background: ${colors.chromatic.red.default};
 `;
 
 export default function Tmp() {
@@ -10,5 +11,5 @@ export default function Tmp() {
 }
 
 const H1 = styled.h1`
-  color: red;
+  color: ${colors.text.primary.default};
 `;
