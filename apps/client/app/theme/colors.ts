@@ -13,7 +13,7 @@ export default {
   text: {
     primary: {
       default: "#000000",
-      disabled: "676767",
+      disabled: "#676767",
     },
     secondary: {
       default: "rgb(0 0 0 / 0.7)",
