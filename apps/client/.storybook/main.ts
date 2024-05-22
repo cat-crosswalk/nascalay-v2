@@ -8,14 +8,13 @@ import { dirname, join } from "node:path";
  */
 
 // biome-ignore lint/suspicious/noExplicitAny: FrameworkName のためにつける (生成時から any)
-function  getAbsolutePath(value: string): any {
+function getAbsolutePath(value: string): any {
   return dirname(require.resolve(join(value, "package.json")));
 }
 const config: StorybookConfig = {
   stories: [
-    "../stories/**/*.mdx",
-    "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
-    "../app/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "../@(app|stories)/**/*.mdx",
+    "../@(app|stories)/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
   addons: [
     getAbsolutePath("@storybook/addon-onboarding"),
