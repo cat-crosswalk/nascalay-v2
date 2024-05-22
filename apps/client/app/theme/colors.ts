@@ -41,4 +41,9 @@ export default {
       "hover-secondary": "#fff1c0",
     },
   },
+  border: {
+    primary: {
+      default: "#000000",
+    },
+  },
 } as const;
