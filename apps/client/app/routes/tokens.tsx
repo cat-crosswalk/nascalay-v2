@@ -83,6 +83,7 @@ const Grid = styled.div`
   grid-template-columns: 10rem 8rem 8rem;
   grid-gap: 1rem;
 `;
+
 const GridTitle = styled.div`
   ${typography.heading4}
 
