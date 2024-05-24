@@ -1,4 +1,4 @@
-import { card, colors, typography } from "@/theme";
+import { border, colors, rounded, shadow, typography } from "@/theme";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import type React from "react";
@@ -58,7 +58,9 @@ export default function Tokens() {
 }
 
 const Card = styled.section`
-  ${card.default}
+  ${border.default}
+  ${shadow.default}
+  ${rounded.default}
 
   padding: 2rem 3rem;
   margin: 2rem;
