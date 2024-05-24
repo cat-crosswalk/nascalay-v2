@@ -9,32 +9,26 @@ export const fontFamily = "'Kiwi Maru', serif";
 
 # Typography
 
+export function Template({ prefix }) {
+  const target = Object.entries(typography)
+    .filter(([key]) => key.startsWith(prefix))
+    .map(([_, value]) => value);
+  const first = target[0];
+  return (
+    <Typeset
+      fontSizes={target.map((v) => v.fontSize)}
+      fontWeights={first.fontWeight}
+      lineHeights={first.lineHeight}
+      sampleText={sampleText}
+      fontFamily={fontFamily}
+    />
+  );
+}
+
 ## Heading
 
-<Typeset
-  fontSizes={[
-    typography.heading1.fontSize,
-    typography.heading2.fontSize,
-    typography.heading3.fontSize,
-    typography.heading4.fontSize,
-    typography.heading5.fontSize,
-  ]}
-  fontWeights={typography.heading1.fontWeight}
-  lineHeights={typography.heading1.lineHeight}
-  sampleText={sampleText}
-  fontFamily={fontFamily}
-/>
+<Template prefix="heading" />
 
 ## Body
 
-<Typeset
-  fontSizes={[
-    typography.body1.fontSize,
-    typography.body2.fontSize,
-    typography.body3.fontSize,
-  ]}
-  fontWeights={typography.body1.fontWeight}
-  lineHeights={typography.body1.lineHeight}
-  sampleText={sampleText}
-  fontFamily={fontFamily}
-/>
+<Template prefix="body" />
