@@ -1,6 +1,4 @@
-import card from "@/theme/card";
-import colors from "@/theme/colors";
-import typography from "@/theme/typography";
+import { card, colors, typography } from "@/theme";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import type React from "react";
