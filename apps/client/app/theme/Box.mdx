@@ -1,0 +1,83 @@
+import { Meta, ColorPalette, ColorItem } from "@storybook/blocks";
+import { border, shadow, rounded } from "./index";
+import styled from "@emotion/styled";
+
+<Meta title="theme/Box" />
+
+# Box
+
+## Rounded + Shadow + Border
+
+```ts
+const Box = styled.div`
+  ${border.default}
+  ${shadow.default}
+  ${rounded.default}
+`;
+```
+
+export const Box1 = styled.div`
+${border.default}
+${shadow.default}
+${rounded.default}
+
+width: 300px;
+height: 100px;
+`;
+
+<Box1 />
+
+## Shadow + Border
+
+```ts
+const Box = styled.div`
+  ${border.default}
+  ${shadow.default}
+`;
+```
+
+export const Box2 = styled.div`
+${border.default}
+${shadow.default}
+
+width: 300px;
+height: 100px;
+`;
+
+<Box2 />
+
+## Border + Rounded
+
+```ts
+const Box = styled.div`
+  ${border.default}
+  ${rounded.default}
+`;
+```
+
+export const Box3 = styled.div`
+${border.default}
+${rounded.default}
+
+width: 300px;
+height: 100px;
+`;
+
+<Box3 />
+
+## Border
+
+```ts
+const Box = styled.div`
+  ${border.default}
+`;
+```
+
+export const Box4 = styled.div`
+${border.default}
+
+width: 300px;
+height: 100px;
+`;
+
+<Box4 />
