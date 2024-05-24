@@ -26,5 +26,8 @@
   "[json]": {
     "editor.defaultFormatter": "biomejs.biome",
     "editor.tabSize": 2
+  },
+  "[mdx]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
