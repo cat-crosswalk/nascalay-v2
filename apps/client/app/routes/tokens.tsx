@@ -1,3 +1,4 @@
+import card from "@/theme/card";
 import colors from "@/theme/colors";
 import typography from "@/theme/typography";
 import { css } from "@emotion/react";
@@ -8,7 +9,7 @@ import { Fragment } from "react";
 export default function Tokens() {
   return (
     <div>
-      <section>
+      <Card>
         <Title>Typography</Title>
         {Object.entries(typography).map(([key, value]) => {
           return (
@@ -17,8 +18,8 @@ export default function Tokens() {
             </div>
           );
         })}
-      </section>
-      <section>
+      </Card>
+      <Card>
         <Title>Colors</Title>
         {Object.entries(colors).map(([key, value]) => {
           return (
@@ -53,10 +54,17 @@ export default function Tokens() {
             </section>
           );
         })}
-      </section>
+      </Card>
     </div>
   );
 }
+
+const Card = styled.section`
+  ${card.default}
+
+  padding: 2rem 3rem;
+  margin: 2rem;
+`;
 
 const Title = styled.h2`
   ${typography.heading1}
@@ -96,5 +104,5 @@ const Sample = styled.div`
   height: 2rem;
   width: 8rem;
 
-  box-shadow: 0 0 4px -1px ${colors.text.primary.default};
+  box-shadow: 0 0 4px -1px ${colors.border.primary.default};
 `;
