@@ -14,9 +14,10 @@ export default {
     primary: {
       default: "#000000",
       disabled: "#676767",
+      readonly: "rgb(0 0 0 / 0.7)",
     },
     secondary: {
-      default: "rgb(0 0 0 / 0.7)",
+      default: "#888888",
     },
     tertiary: {
       default: "rgb(0 0 0 / 0.3)",
@@ -44,6 +45,7 @@ export default {
   border: {
     primary: {
       default: "#000000",
+      disabled: "#676767",
     },
   },
 } as const;
