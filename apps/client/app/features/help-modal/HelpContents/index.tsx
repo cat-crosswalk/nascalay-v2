@@ -5,7 +5,7 @@ import { Collection } from "react-aria-components";
 import { Indicator } from "./Indicator";
 import { Slides_1 } from "./Slides_1";
 
-const Slides = [Slides_1, Slides_1, Slides_1].map(
+const Slides = [Slides_1, Slides_1, Slides_1, Slides_1, Slides_1].map(
   (Slide, index) => [Slide, index] as const,
 );
 
@@ -59,12 +59,7 @@ export function HelpContents() {
           </Collection>
         </SlidesWrap>
 
-        <button
-          type="button"
-          onClick={() => select((index + 1) % Slides.length)}
-        >
-          Next
-        </button>
+        <Indicator currentIdx={index} total={Slides.length} select={select} />
       </Wrap>
     </AnimatePresence>
   );
