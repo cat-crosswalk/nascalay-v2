@@ -44,18 +44,7 @@ export function HelpModal() {
 
       <AnimatePresence>
         {isOpen && (
-          <AMotionModalOverlay
-            isDismissable
-            isOpen
-            onOpenChange={setIsOpen}
-            // animate={{
-            //   scaleY: [0.1, 0, 1],
-            //   scaleX: [0.1, 1, 1],
-            // }}
-            // transition={{
-            //   duration: 0.2,
-            // }}
-          >
+          <AMotionModalOverlay isDismissable isOpen onOpenChange={setIsOpen}>
             <AMotionModal>
               <ADialog
                 layoutId={id}
@@ -63,7 +52,7 @@ export function HelpModal() {
                   duration: 0.3,
                 }}
               >
-                <AHeader>
+                <AHeader layout>
                   <AHeading layoutId={titleId}>遊び方</AHeading>
                   <IconButton layoutId={buttonId} onPress={close}>
                     <MdClear size={24} />
@@ -144,7 +133,7 @@ const ADialog = styled(MotionDialog)`
   padding: 0%.5 1rem;
 `;
 
-const AHeader = styled.div`
+const AHeader = styled(motion.div)`
   display: flex;
   grid-gap: 1rem;
   align-items: center;
