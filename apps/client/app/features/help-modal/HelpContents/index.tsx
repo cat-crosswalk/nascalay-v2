@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { AnimatePresence, animate, motion } from "framer-motion";
 import { useCallback, useId, useRef, useState } from "react";
 import { Collection } from "react-aria-components";
+import { Indicator } from "./Indicator";
 import { Slides_1 } from "./Slides_1";
 
 const Slides = [Slides_1, Slides_1, Slides_1].map(
