@@ -12,6 +12,7 @@ import {
   type PressEvent,
 } from "react-aria-components";
 import { MdClear, MdOutlineQuestionMark } from "react-icons/md";
+import { HelpContents } from "./HelpContents";
 
 const MotionButton = motion(Button);
 const MotionModal = motion(Modal);
@@ -58,6 +59,8 @@ export function HelpModal() {
                     <MdClear size={24} />
                   </IconButton>
                 </AHeader>
+
+                <HelpContents />
               </ADialog>
             </AMotionModal>
           </AMotionModalOverlay>
@@ -130,7 +133,10 @@ const ADialog = styled(MotionDialog)`
   position: fixed;
   inset: 2rem;
 
-  padding: 0%.5 1rem;
+  padding: 0.5rem 1rem;
+
+  display: grid;
+  grid-template-rows: auto 1fr;
 `;
 
 const AHeader = styled(motion.div)`
