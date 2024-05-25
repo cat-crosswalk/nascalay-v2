@@ -90,7 +90,6 @@ const ButtonText = styled(motion.span)`
   ${typography.heading4};
 
   display: block;
-  font-family: 'Kiwi Maru', serif;
 `;
 
 const iconButtonStyle = css`
@@ -154,5 +153,4 @@ const AHeading = styled(motion(Heading))`
 
   margin: 0;
   margin-right: auto;
-  font-family: 'Kiwi Maru', serif;
 `;

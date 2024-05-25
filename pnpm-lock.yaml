@@ -17,6 +17,9 @@ importers:
 
   apps/client:
     dependencies:
+      '@acab/reset.css':
+        specifier: ^0.10.0
+        version: 0.10.0
       '@emotion/react':
         specifier: ^11.11.4
         version: 11.11.4(@types/react@18.3.2)(react@18.3.1)
@@ -117,6 +120,9 @@ importers:
   packages/typescript-config: {}
 
 packages:
+
+  '@acab/reset.css@0.10.0':
+    resolution: {integrity: sha512-99vTN5JMd3X+DQhR7XNC5Vc92YxzQvPbT+jnNy5uuFTcBlo0RpMBaR6/U5ZXt/cEjkZ0LDHUu8XGCQOlAvuNIQ==}
 
   '@adobe/css-tools@4.3.3':
     resolution: {integrity: sha512-rE0Pygv0sEZ4vBWHlAgJLGDU7Pm8xoO6p3wsEceb7GYAjScrOHpEo8KK/eVkAcnSM+slAEtXjA2JpdjLp4fJQQ==}
@@ -5576,6 +5582,8 @@ packages:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
 snapshots:
+
+  '@acab/reset.css@0.10.0': {}
 
   '@adobe/css-tools@4.3.3': {}
 
