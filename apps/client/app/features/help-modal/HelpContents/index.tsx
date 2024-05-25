@@ -71,7 +71,7 @@ const Wrap = styled(motion.div)`
   height: 100%;
 
   grid-template-rows: 1fr auto;
-  grid-gap: 2rem;
+  grid-gap: 1rem;
 `;
 
 const SlidesWrap = styled.div`

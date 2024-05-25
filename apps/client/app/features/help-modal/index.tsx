@@ -132,10 +132,11 @@ const ADialog = styled(MotionDialog)`
   position: fixed;
   inset: 2rem;
 
-  padding: 0.5rem 1rem;
+  padding: 1.5rem 2rem;
 
   display: grid;
   grid-template-rows: auto 1fr;
+  grid-gap: 1.5rem;
 `;
 
 const AHeader = styled(motion.div)`
@@ -143,9 +144,6 @@ const AHeader = styled(motion.div)`
   grid-gap: 1rem;
   align-items: center;
   width: calc(100% - (1rem + 0.75rem));
-
-  padding: 0.75rem;
-  padding-left: 1rem;
 `;
 
 const AHeading = styled(motion(Heading))`
