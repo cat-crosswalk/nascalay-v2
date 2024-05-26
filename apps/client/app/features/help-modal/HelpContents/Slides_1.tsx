@@ -1,10 +1,8 @@
-import type { MotionProps } from "framer-motion";
+import type React from "react";
 import { SlidesBase } from "./Slides_0_Base";
 
-interface Props extends MotionProps {
-  id?: string;
-}
+type Props = React.ComponentProps<typeof SlidesBase>;
 
-export function Slides_1({ id, ...props }: Props) {
-  return <SlidesBase id={id} {...props} />;
+export function Slides_1({ ...props }: Props) {
+  return <SlidesBase {...props} />;
 }

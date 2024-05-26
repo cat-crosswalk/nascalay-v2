@@ -1,8 +1,8 @@
 import { border, colors, rounded } from "@/theme";
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
-import { useId, useMemo } from "react";
-import { Button } from "react-aria-components";
+import { useCallback, useId } from "react";
+import { Button, Tab, TabList } from "react-aria-components";
 import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 interface Props {
@@ -12,36 +12,34 @@ interface Props {
 }
 
 export function Indicator({ currentIdx, total, select }: Props) {
-  const handlers = useMemo(() => {
-    return Array.from(
-      { length: total },
-      (_, idx) => [idx, () => select(idx)] as const,
-    );
-  }, [total, select]);
-
   const id = useId();
 
+  const isFirst = currentIdx === 0;
+  const isLast = currentIdx === total - 1;
+
+  const prev = useCallback(() => select(currentIdx - 1), [currentIdx, select]);
+  const next = useCallback(() => select(currentIdx + 1), [currentIdx, select]);
+
   return (
-    <Wrap>
+    <Wrap aria-label="遊び方">
       <WithButtonWrap>
-        <IconButton
-          isDisabled={currentIdx === 0}
-          onPress={handlers[currentIdx - 1]?.[1]}
-        >
+        <IconButton isDisabled={isFirst} onPress={prev}>
           <MdArrowBack size={24} />
         </IconButton>
         <IndicatorsWrap>
-          {handlers.map(([idx, handler]) => (
-            <IndicatorButton key={idx} onPress={handler}>
-              <IndicatorDefault />
-              {idx === currentIdx && <IndicatorSelected layoutId={id} />}
-            </IndicatorButton>
+          {Array.from({ length: total }, (_, idx) => idx).map((idx) => (
+            <IndicatorTab key={idx} id={`${idx}`}>
+              <IndicatorDefault role="img" aria-label={`page ${idx}`} />
+              {idx === currentIdx && (
+                <IndicatorSelected
+                  layoutId={id}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                />
+              )}
+            </IndicatorTab>
           ))}
         </IndicatorsWrap>
-        <IconButton
-          isDisabled={currentIdx === total - 1}
-          onPress={handlers[currentIdx + 1]?.[1]}
-        >
+        <IconButton isDisabled={isLast} onPress={next}>
           <MdArrowForward size={24} />
         </IconButton>
       </WithButtonWrap>
@@ -78,14 +76,14 @@ const IconButton = styled(Button)`
   }
 `;
 
-const IndicatorsWrap = styled.div`
+const IndicatorsWrap = styled(TabList)`
   display: grid;
   grid-auto-flow: column;
 
   gap: 0.6875rem;
 `;
 
-const IndicatorButton = styled(Button)`
+const IndicatorTab = styled(Tab)`
   display: grid;
   place-items: center;
 
