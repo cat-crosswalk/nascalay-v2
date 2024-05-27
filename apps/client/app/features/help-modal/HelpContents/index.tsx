@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { AnimatePresence, animate, motion } from "framer-motion";
+import { animate, motion } from "framer-motion";
 import { useCallback, useRef, useState } from "react";
 import { Collection, type Key, Tabs } from "react-aria-components";
 import { Indicator } from "./Indicator";
@@ -58,25 +58,19 @@ export function HelpContents() {
   );
 
   return (
-    <AnimatePresence>
-      <Wrap selectedKey={`${index}`} onSelectionChange={onSelectionChange}>
-        <SlidesWrap layout ref={slidesWrapRef}>
-          <Collection items={Slides}>
-            {([Slide, idx]) => (
-              <SlideWrap id={`${idx}`}>
-                <Slide shouldForceMount id={`${idx}`} />
-              </SlideWrap>
-            )}
-          </Collection>
-        </SlidesWrap>
+    <Wrap selectedKey={`${index}`} onSelectionChange={onSelectionChange}>
+      <SlidesWrap ref={slidesWrapRef}>
+        <Collection items={Slides}>
+          {([Slide, idx]) => (
+            <SlideWrap id={`${idx}`}>
+              <Slide shouldForceMount id={`${idx}`} />
+            </SlideWrap>
+          )}
+        </Collection>
+      </SlidesWrap>
 
-        <Indicator
-          currentIdx={index}
-          total={Slides.length}
-          select={select}
-        />
-      </Wrap>
-    </AnimatePresence>
+      <Indicator currentIdx={index} total={Slides.length} select={select} />
+    </Wrap>
   );
 }
 
