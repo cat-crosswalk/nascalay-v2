@@ -102,7 +102,7 @@ const SlideWrap = styled.div`
   padding-right: 1rem;
 
   height: 100%;
-  width: calc(100% - 2rem);
+  width: 100%;
 
   display: grid;
 `;

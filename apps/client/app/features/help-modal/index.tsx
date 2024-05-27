@@ -143,7 +143,7 @@ const AHeader = styled(motion.div)`
   display: flex;
   grid-gap: 1rem;
   align-items: center;
-  width: calc(100% - (1rem + 0.75rem));
+  width: 100%;
 `;
 
 const AHeading = styled(motion(Heading))`
