@@ -9,6 +9,18 @@ interface Seed {
   dy: -1 | 1;
 }
 
+interface Operations {
+  /**
+   * キャンバス内の有効な座標かつ targetColor と等しいかどうかを返す
+   */
+  inside: (x: number, y: number) => boolean;
+  /**
+   * キャンバスの座標 (x, y) を塗りつぶす色で塗る
+   */
+  set: (x: number, y: number) => void;
+  pushSeed: (seed: Seed) => void;
+}
+
 /**
  * seed の範囲を対象色がある限り左に広げる
  *
@@ -57,18 +69,6 @@ function createSet(data: Color[][], color: Color): Operations["set"] {
   return (x, y) => {
     data[y][x] = color;
   };
-}
-
-interface Operations {
-  /**
-   * キャンバス内の有効な座標かつ targetColor と等しいかどうかを返す
-   */
-  inside: (x: number, y: number) => boolean;
-  /**
-   * キャンバスの座標 (x, y) を塗りつぶす色で塗る
-   */
-  set: (x: number, y: number) => void;
-  pushSeed: (seed: Seed) => void;
 }
 
 /**
