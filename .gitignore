@@ -12,3 +12,4 @@ build/
 !.vscode/*.code-snippets
 
 *storybook.log
+storybook-static/
